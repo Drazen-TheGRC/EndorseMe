@@ -1,18 +1,31 @@
 html, body {
     margin: 0;
-    padding: 50px;
+    padding: 0;
 }
 
 .container {
-    background-color: black;
-
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    padding: 3em;
     width: 380px;
+    margin: 0 auto;
+    padding: 3em;
+
+    background-color: black;  
 }
+
+form,
+textarea, 
+input, 
+button,
+h1,
+h2,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+
 
 img {
     width: 30%;
@@ -25,20 +38,24 @@ h1, h2 {
 form{
     display: flex;
     flex-direction: column;
-}
-textarea{
+    box-sizing: border-box;
+    width: 100%;
     
 }
 
-.input{
+
+
+.input-container{
     display: flex;
-    padding: 0.5em 0 0.5em 0;
+    padding: 0.5em 0;
 }
 
 .from {
+    width: 50%;
     margin-right: 0.25em;
 }
 .to{
+    width: 50%;
     margin-left: 0.25em;
 }
 
@@ -48,4 +65,14 @@ input{
 
 button{
     
+}
+
+.endorsment-div {
+    
+    
+}
+p{
+    background-color: white;
+    margin: 0;
+    padding: 1em;
 }
