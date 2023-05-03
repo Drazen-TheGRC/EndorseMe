@@ -1,6 +1,8 @@
 html, body {
     margin: 0;
     padding: 0;
+
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 .container {
@@ -26,6 +28,7 @@ img,
 .like-span {
     margin: 0;
     padding: 0;
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 
@@ -34,11 +37,18 @@ img {
     width: 30%;
 }
 
-h1, h2 {
+h1, 
+h2 {
     color: white;
     margin: 0.75em auto;
 }
 
+h1 {
+    font-size: 1.55rem;
+}
+h2 {
+    font-size: 1.25rem;
+}
 
 
 
@@ -93,17 +103,17 @@ input{
 }
 
 button{
-    padding: 0.75em 1em;
+    padding: 1em 1em 0.75em 1em;
     background-color: #28A9F1;
     color: #04131C;
 
-    font-size: 1.5em;
+    font-size: 1.35em;
     font-weight: bold;
 }
 
 h3 {
     color: #1B1924;
-    font-size: 1em;
+    font-size: 0.95em;
     font-weight: bold;
 }
 
@@ -121,4 +131,5 @@ h3 {
 }
 p{
     margin: 0.5em auto;
+    font-size: 0.9rem;
 }
