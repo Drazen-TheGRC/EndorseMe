@@ -16,28 +16,35 @@
     </head>
     <body>
         <div class="container">
-            <img src="assets/freddie.png" alt="">
-            <h1>We are the Champions</h1>
+            <img src="assets/dispatcher.png" alt="">
+            <h1>We are Dispatchers</h1>
             
             <form action="">
 
                 <textarea name="text" id="text" cols="30" rows="5" placeholder="Write your endorsment here"></textarea>
                 
                 <div class="input-container">
-                    <input type="text" name="from" class="from" id="from" placeholder="From">
-                    <input type="text" name="to" class="to" id="to" placeholder="To">
+                    <input type="text" name="from-input" class="from-input" id="from-input" placeholder="From">
+                    <input type="text" name="to-input" class="to-input" id="to-input" placeholder="To">
                 </div>
                     
                 <button type="submit">Publish</button>
             </form>
             <h2>- Endorsments -</h2>
 
-            <div class="endorsment-div">
-                <h3>To Abby</h2>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate optio nobis dolores alias. Tempora beatae delectus quo modi aliquam distinctio asperiores, incidunt in deserunt illum provident quidem quasi et quis.</p>
-                <h3>From Dave</h2>
-                <span class="like-span"><i class="fa-solid fa-heart"></i> 5</span>    
+
+            <div class="endorsment-container">
+
+                <div class="endorsment-div">
+                    <h3 class="to-render">To Abby</h2>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate optio nobis dolores alias. Tempora beatae delectus quo modi aliquam distinctio asperiores, incidunt in deserunt illum provident quidem quasi et quis.</p>
+                    <h3 class="from-render">From Dave</h2>
+                    <span class="like-span"><i class="fa-solid fa-heart"></i> 5</span>    
+                </div>
+
             </div>
+
+            
         </div>
         <script src="index.js"></script>
     </body>

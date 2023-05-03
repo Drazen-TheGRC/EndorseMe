@@ -37,6 +37,14 @@ img {
     width: 30%;
 }
 
+.dispatch {
+    font-size: 50px;
+    color: white;
+    width: 50px;
+    height: 50px;
+    
+}
+
 h1, 
 h2 {
     color: white;
@@ -81,20 +89,22 @@ button {
     display: flex;
     padding: 0.5em 0;
 }
-.from,
-.to {
+.from-input,
+.to-input {
     width: 50%;
+    text-align: center;
 }
-.from {
+.from-input {
     margin-right: 0.25em;
 }
-.to{
+.to-input {
     margin-left: 0.25em;
 }
 
 
 textarea {
     padding: 1em;
+    resize: none;
 }
 
 
@@ -115,19 +125,32 @@ h3 {
     color: #1B1924;
     font-size: 0.95em;
     font-weight: bold;
+    
+    
+}
+
+.to-render {
+    border-bottom: 1px solid #1B1924;
+    padding-top: 0.8em;
+    padding-bottom: 0.45em;
+}
+.from-render {
+    border-top: 1px solid #1B1924;
+    padding-top: 0.8em;
+    padding-bottom: 0.55em;
 }
 
 .endorsment-div {
     position: relative;
     background-color: white;
-    padding: 1em;
+    padding: 0 1em;
 }
 
 .like-span{
 
     position: absolute;
     right: 1em;
-    bottom: 1em;
+    bottom: 0.5em;
 }
 p{
     margin: 0.5em auto;
