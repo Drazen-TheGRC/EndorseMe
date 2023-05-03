@@ -7,11 +7,11 @@ html, body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 380px;
+    width: 320px;
     margin: 0 auto;
     padding: 3em;
 
-    background-color: black;  
+    background-color: #111827;  
 }
 
 form,
@@ -20,7 +20,10 @@ input,
 button,
 h1,
 h2,
-p {
+h3,
+p,
+img,
+.like-span {
     margin: 0;
     padding: 0;
 }
@@ -33,8 +36,13 @@ img {
 
 h1, h2 {
     color: white;
+    margin: 0.75em auto;
 }
 
+
+
+
+/**/
 form{
     display: flex;
     flex-direction: column;
@@ -45,34 +53,72 @@ form{
 
 
 
+textarea,
+input,
+button {
+    box-shadow: none;
+    border: none;
+    border-radius: 6px;
+
+    background-color: #444059;
+    color: #8F8F8F;
+}
+
+
+
+/* Input */
 .input-container{
     display: flex;
     padding: 0.5em 0;
 }
-
-.from {
+.from,
+.to {
     width: 50%;
+}
+.from {
     margin-right: 0.25em;
 }
 .to{
-    width: 50%;
     margin-left: 0.25em;
 }
 
+
+textarea {
+    padding: 1em;
+}
+
+
 input{
-    
+    padding: 0.5em 1em;
 }
 
 button{
-    
+    padding: 0.75em 1em;
+    background-color: #28A9F1;
+    color: #04131C;
+
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+h3 {
+    color: #1B1924;
+    font-size: 1em;
+    font-weight: bold;
 }
 
 .endorsment-div {
-    
-    
+    position: relative;
+    background-color: white;
+    padding: 1em;
+}
+
+.like-span{
+
+    position: absolute;
+    right: 1em;
+    bottom: 1em;
 }
 p{
-    background-color: white;
-    margin: 0;
-    padding: 1em;
+    margin: 0.5em auto;
 }
