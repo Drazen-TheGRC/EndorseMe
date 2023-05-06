@@ -116,9 +116,18 @@ button{
     padding: 1em 1em 0.75em 1em;
     background-color: #28A9F1;
     color: #04131C;
+    border: 3px solid #28A9F1;
 
     font-size: 1.35em;
     font-weight: bold;
+}
+
+button:hover {
+    border-color: white;
+}
+
+button:active{
+    background-color: antiquewhite;
 }
 
 h3 {

@@ -16,19 +16,19 @@
     </head>
     <body>
         <div class="container">
-            <img src="assets/dispatcher.png" alt="">
+            <img src="assets/dispatcher_white.png" alt="">
             <h1>We are Dispatchers</h1>
             
             <form action="">
 
-                <textarea name="text" id="text" cols="30" rows="5" placeholder="Write your endorsment here"></textarea>
+                <textarea name="endorsment-text" id="endorsment-text" cols="30" rows="5" placeholder="Write your endorsment here" required></textarea>
                 
                 <div class="input-container">
-                    <input type="text" name="from-input" class="from-input" id="from-input" placeholder="From">
-                    <input type="text" name="to-input" class="to-input" id="to-input" placeholder="To">
+                    <input type="text" name="from-input" class="from-input" id="from-input" placeholder="From" required>
+                    <input type="text" name="to-input" class="to-input" id="to-input" placeholder="To" required>
                 </div>
                     
-                <button type="submit">Publish</button>
+                <button type="button" id="submit-btn">Publish</button>
             </form>
             <h2>- Endorsments -</h2>
 
@@ -46,6 +46,6 @@
 
             
         </div>
-        <script src="index.js"></script>
+        <script src="index.js" type="module"></script>
     </body>
 </html>
