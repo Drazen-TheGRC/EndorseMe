@@ -24,6 +24,8 @@ const endorsmentTextEl = document.getElementById("endorsment-text")
 const fromInputEl = document.getElementById("from-input")
 const toInputEl = document.getElementById("to-input")
 
+const endorsmentContainerEl = document.getElementById("endorsment-container")
+
 const submitButtonEl = document.getElementById("submit-btn")
 
 
@@ -34,14 +36,17 @@ submitButtonEl.addEventListener("click", () => {
     let fromInput = fromInputEl.value
     let toInput = toInputEl.value
 
-    push(endorseMeDatabase, getEndorsment(toInput, endorsmentText, fromInput))
+    push(endorseMeDatabase, getEndorsment(toInput, endorsmentText, fromInput, 0))
 
     console.log("endorsmentText:", endorsmentText)
     console.log("fromInput:", fromInput)
     console.log("toInput:", toInput)
 
+    appendEndorsmentToEndorsments(toInput, endorsmentText, fromInput, 0)
+
     clearAllInputs()
 })
+
 
 
 
@@ -52,13 +57,27 @@ function clearAllInputs(){
     toInputEl.value = ""
 }
 
-function getEndorsment(toInput, endorsmentText, fromInput){
+function appendEndorsmentToEndorsments(toInput, endorsmentText, fromInput, numOfLikes){
+    endorsmentContainerEl.innerHTML += `
+    <div class="endorsment-div">
+        <h3 class="to-render">To: ${toInput}</h2>
+        <p>${endorsmentText}</p>
+        <h3 class="from-render">From: ${fromInput}</h2>
+        <span class="like-span"><i class="fa-solid fa-heart"></i> ${numOfLikes}</span>    
+    </div>
+    `
+}
+
+function getEndorsment(toInput, endorsmentText, fromInput, numOfLikes){
     let endorsment = {
         to : toInput,
         endorsmentText : endorsmentText,
         from : fromInput,
         date : "",
-        likes : 0
+        likes : numOfLikes
     }
     return endorsment
 }
+
+
+                

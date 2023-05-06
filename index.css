@@ -149,10 +149,17 @@ h3 {
     padding-bottom: 0.55em;
 }
 
+.endorsment-container{
+    width: 100%;
+    box-sizing: border-box;
+}
+
 .endorsment-div {
     position: relative;
     background-color: white;
     padding: 0 1em;
+    margin-top: 2em;
+    
 }
 
 .like-span{
