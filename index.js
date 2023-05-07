@@ -24,13 +24,18 @@ let snapshotLength = 0
 
 // Fetching data from the database
 onValue(endorseMeDatabase, (snapshot) => {
-    // Clear endorsmentContainerEl
-    clearEndorsmentContainerEl()
+    
     // If snapshot exists
     if(snapshot.exists()){
+
         snapshotExists = true
         // Create an array of snapshot entries (each entry is an array of an id[0] and a value[1])
         let endorsmentsArray = Object.entries(snapshot.val())
+        if(endorsmentsArray.length >= 20){
+            deleteOverLimitEndorsment()
+        }
+        // Clear endorsmentContainerEl
+        clearEndorsmentContainerEl()
         // Append all values to endorsmentContainerEl
         endorsmentsArray.forEach( (currentEndorsment) => {
             appendEndorsmentToEndorsments(currentEndorsment[0], currentEndorsment[1])
@@ -56,16 +61,10 @@ submitButtonEl.addEventListener("click", () => {
     let toInput = toInputEl.value
 
     if(snapshotExists){
-        if(snapshotLength < 20){
-            // Push to the database
-            push(endorseMeDatabase, getEndorsment(toInput, endorsmentText, fromInput, 0))
-            // Clear input field
-            clearAllInputs()
-        }else{
-            // Delete oldest endorsment
-            // Append new endorsment
-            // ClearAllInputs
-        }
+        // Push to the database
+        push(endorseMeDatabase, getEndorsment(toInput, endorsmentText, fromInput, 0))
+        // Clear input field
+        clearAllInputs()
     }else{
         // Push input field value to the database
         push(endorseMeDatabase, getEndorsment(toInput, endorsmentText, fromInput, 0))
@@ -110,5 +109,9 @@ function getEndorsment(toInput, endorsmentText, fromInput, numOfLikes){
     return endorsment
 }
 
+function deleteOverLimitEndorsment(){
+    let exactEndorsmentLocation = ref(database, `endorseMeDatabase/${endorsmentsArray[0][0]}`)
+    remove(exactEndorsmentLocation)
+}
 
                 
