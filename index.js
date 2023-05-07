@@ -4,11 +4,11 @@ import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.21.0/firebas
 import { getDatabase, ref, push, onValue, remove } from 'https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js'
 
 
+
 /* My database */
 const firebaseConfig = {
     databaseURL: "https://endorse-me-8c141-default-rtdb.europe-west1.firebasedatabase.app/"
 }
-
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig)
@@ -19,54 +19,58 @@ const endorseMeDatabase = ref(database, "endorseMeDatabase")
 
 
 
-
-const endorsmentTextEl = document.getElementById("endorsment-text")
-const fromInputEl = document.getElementById("from-input")
-const toInputEl = document.getElementById("to-input")
-
-const endorsmentContainerEl = document.getElementById("endorsment-container")
-
-const submitButtonEl = document.getElementById("submit-btn")
-
-let snapshotExists
-let snapshotLength
-
-// Button event listener 
-submitButtonEl.addEventListener("click", () => {
-    
-    let endorsmentText = endorsmentTextEl.value
-    let fromInput = fromInputEl.value
-    let toInput = toInputEl.value
-
-    push(endorseMeDatabase, getEndorsment(toInput, endorsmentText, fromInput, 0))
-
-    console.log("endorsmentText:", endorsmentText)
-    console.log("fromInput:", fromInput)
-    console.log("toInput:", toInput)
-
-    appendEndorsmentToEndorsments(toInput, endorsmentText, fromInput, 0)
-
-    clearAllInputs()
-})
+let snapshotExists = false
+let snapshotLength = 0
 
 // Fetching data from the database
 onValue(endorseMeDatabase, (snapshot) => {
     // Clear endorsmentContainerEl
     clearEndorsmentContainerEl()
-
     // If snapshot exists
     if(snapshot.exists()){
-        
         snapshotExists = true
         // Create an array of snapshot entries (each entry is an array of an id[0] and a value[1])
         let endorsmentsArray = Object.entries(snapshot.val())
-        
         // Append all values to endorsmentContainerEl
         endorsmentsArray.forEach( (currentEndorsment) => {
             appendEndorsmentToEndorsments(currentEndorsment[0], currentEndorsment[1])
         })
     }else{
         snapshotExists = false
+    }
+})
+
+
+
+const endorsmentTextEl = document.getElementById("endorsment-text")
+const fromInputEl = document.getElementById("from-input")
+const toInputEl = document.getElementById("to-input")
+const endorsmentContainerEl = document.getElementById("endorsment-container")
+const submitButtonEl = document.getElementById("submit-btn")
+
+// Button event listener 
+submitButtonEl.addEventListener("click", () => {
+
+    let endorsmentText = endorsmentTextEl.value
+    let fromInput = fromInputEl.value
+    let toInput = toInputEl.value
+
+    if(snapshotExists){
+        if(snapshotLength < 20){
+            // Push to the database
+            push(endorseMeDatabase, getEndorsment(toInput, endorsmentText, fromInput, 0))
+            // Clear input field
+            clearAllInputs()
+        }else{
+            // Delete oldest endorsment
+            // Append new endorsment
+            // ClearAllInputs
+        }
+    }else{
+        // Push input field value to the database
+        push(endorseMeDatabase, getEndorsment(toInput, endorsmentText, fromInput, 0))
+        // Clear input field
+        clearAllInputs()
     }
 })
 
@@ -84,7 +88,6 @@ function clearEndorsmentContainerEl(){
 }
 
 function appendEndorsmentToEndorsments(endorsmentId, endorsment){
-
 
     endorsmentContainerEl.innerHTML += `
     <div class="endorsment-div">
